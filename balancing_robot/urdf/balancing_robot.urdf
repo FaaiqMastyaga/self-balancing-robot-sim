@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="balancing_robot">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 -7.38210875324414E-21 0" rpy="0 0 0"/>
+      <mass value="1E-06"/>
+      <inertia ixx="1.66666666666667E-13" ixy="-1.14080217822874E-29" ixz="-8.55284707229503E-46"
+               iyy="1.66666666666667E-13" iyz="-9.12431914434274E-30" izz="1.66666666666667E-13"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://balancing_robot/meshes/base_link.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://balancing_robot/meshes/base_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="left_wheel_link">
+    <inertial>
+      <origin xyz="4.1701892458914E-10 -0.0107620339834173 1.1536175521798E-09" rpy="0 0 0"/>
+      <mass value="0.0282163110796927"/>
+      <inertia ixx="1.1937904781933E-05" ixy="8.1598440104964E-14" ixz="-8.29761372695245E-15"
+               iyy="2.21835631504705E-05" iyz="3.28078678632457E-13" izz="1.19394388896027E-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://balancing_robot/meshes/left_wheel_link.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://balancing_robot/meshes/left_wheel_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="left_wheel_joint" type="continuous">
+    <origin xyz="0 0.134899999999995 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="left_wheel_link"/>
+    <axis xyz="0 -1 0"/>
+  </joint>
+
+  <link name="right_wheel_link">
+    <inertial>
+      <origin xyz="-4.17023003332256E-10 0.0107620339834228 1.15361737870745E-09" rpy="0 0 0"/>
+      <mass value="0.0282163110796927"/>
+      <inertia ixx="1.1937904781933E-05" ixy="8.15984467319882E-14" ixz="8.29761011169958E-15"
+               iyy="2.21835631504705E-05" iyz="-3.28078679600782E-13" izz="1.19394388896027E-05"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://balancing_robot/meshes/right_wheel_link.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://balancing_robot/meshes/right_wheel_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="right_wheel_joint" type="continuous">
+    <origin xyz="0 -0.1349 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="right_wheel_link"/>
+    <axis xyz="0 -1 0"/>
+  </joint>
+
+  <link name="chassis_link">
+    <inertial>
+      <origin xyz="-1.88758257427167E-15 3.49754321041601E-17 0.172062989016561" rpy="0 0 0"/>
+      <mass value="1.77314076010499"/>
+      <inertia ixx="0.00326400388015331" ixy="-8.78275988539413E-12" ixz="-5.64098733173093E-21"
+               iyy="0.000515351639912476" iyz="-4.62513025730632E-20" izz="0.00352853610955004"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://balancing_robot/meshes/chassis_link.STL"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://balancing_robot/meshes/chassis_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="chassis_joint" type="continuous">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="chassis_link"/>
+    <axis xyz="0 -1 0"/>
+  </joint>
+</robot>
